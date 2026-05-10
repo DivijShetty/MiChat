@@ -11,180 +11,270 @@
 </head>
 <body>
 
-    <!-- LOGIN SCREEN -->
-    <div id="login-screen">
-        <div class="login-card">
-            <div class="login-logo">
-                <span class="logo-icon">⬡</span>
-                <span class="logo-text">MiChat</span>
-            </div>
-            <p class="login-tagline">Real-time rooms. Zero friction.</p>
-            <button id="login-btn" class="google-btn">
-                <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
-                    <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/>
-                    <path d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.548 0 9s.348 2.825.957 4.039l3.007-2.332z" fill="#FBBC05"/>
-                    <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z" fill="#EA4335"/>
-                </svg>
-                Continue with Google
-            </button>
-        </div>
+<!-- ═══════════════════════════════════════════════
+     LOGIN SCREEN
+═══════════════════════════════════════════════ -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">MiChat</span>
+    </div>
+    <p class="login-tagline">Real-time rooms. Zero friction.</p>
+    <button id="login-btn" class="google-btn">
+      <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+        <path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/>
+        <path d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.548 0 9s.348 2.825.957 4.039l3.007-2.332z" fill="#FBBC05"/>
+        <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.961L3.964 7.293C4.672 5.166 6.656 3.58 9 3.58z" fill="#EA4335"/>
+      </svg>
+      Continue with Google
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MAIN APP
+═══════════════════════════════════════════════ -->
+<div id="chat-app" class="hidden">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <span class="logo-icon-small">⬡</span>
+      <span class="sidebar-title">MiChat</span>
     </div>
 
-    <!-- CHAT APP -->
-    <div id="chat-app" class="hidden">
-
-        <!-- SIDEBAR -->
-        <aside id="sidebar">
-            <div class="sidebar-header">
-                <span class="logo-icon-small">⬡</span>
-                <span class="sidebar-title">MiChat</span>
-            </div>
-
-            <div class="rooms-label">ROOMS</div>
-            <nav id="room-list">
-                <button class="room-btn active" data-room="general"># general</button>
-                <button class="room-btn" data-room="gaming"># gaming</button>
-                <button class="room-btn" data-room="music"># music</button>
-                <button class="room-btn" data-room="tech"># tech</button>
-                <button class="room-btn" data-room="random"># random</button>
-            </nav>
-
-            <div class="sidebar-footer">
-                <div id="user-info">
-                    <img id="user-avatar" src="" alt="avatar">
-                    <span id="user-name"></span>
-                </div>
-                <div style="display:flex;gap:6px;">
-                    <button id="customize-btn" title="Customize">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-                    </button>
-                    <button id="logout-btn" title="Logout">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-                    </button>
-                </div>
-            </div>
-        </aside>
-
-        <!-- MAIN CHAT -->
-        <main id="chat-main">
-            <div id="chat-header">
-                <div class="chat-header-room">
-                    <span id="active-room-name"># general</span>
-                    <span class="status-dot"></span>
-                </div>
-                <div id="online-count"><span id="msg-count">0</span> messages</div>
-            </div>
-
-            <div id="messages"></div>
-
-            <!-- Typing indicator -->
-            <div id="typing-indicator" class="hidden">
-                <div class="typing-dots"><span></span><span></span><span></span></div>
-                <span id="typing-text"></span>
-            </div>
-
-            <form id="message-form">
-                <input type="file" id="file-input" accept="image/*,.pdf,.doc,.docx,.zip,.txt" style="display:none">
-                <button type="button" id="attach-btn" title="Attach file">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-                </button>
-
-                <div id="input-wrapper">
-                    <div id="file-preview" class="hidden">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                        <span id="file-preview-name"></span>
-                        <button type="button" id="file-cancel">✕</button>
-                    </div>
-                    <input type="text" id="message-input" placeholder="Message #general…" autocomplete="off">
-                </div>
-
-                <button type="submit" id="send-btn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </button>
-            </form>
-
-            <!-- Upload progress -->
-            <div id="upload-progress" class="hidden">
-                <div id="upload-bar"></div>
-                <span id="upload-label">Uploading…</span>
-            </div>
-        </main>
+    <div class="rooms-section">
+      <div class="rooms-label-row">
+        <span class="rooms-label">ROOMS</span>
+        <button id="new-room-btn" class="icon-btn" title="Create room">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+      <nav id="room-list"></nav>
     </div>
 
-    <!-- CUSTOMIZATION PANEL -->
-    <div id="customize-panel" class="hidden">
-        <div class="panel-header">
-            <span>Customize</span>
-            <button id="close-panel">✕</button>
+    <div class="sidebar-footer">
+      <div id="user-info">
+        <img id="user-avatar" src="" alt="avatar">
+        <div class="user-details">
+          <span id="user-name"></span>
+          <span id="user-role-badge" class="hidden"></span>
         </div>
+      </div>
+      <div class="footer-btns">
+        <button id="customize-btn" class="icon-btn" title="Customize">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </button>
+        <button id="logout-btn" class="icon-btn" title="Logout">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
 
-        <div class="panel-section">
-            <div class="panel-label">Theme</div>
-            <div class="theme-grid">
-                <button class="theme-swatch active" data-theme="dark" title="Dark">
-                    <span style="background:#0d0f14"></span><span class="swatch-label">Dark</span>
-                </button>
-                <button class="theme-swatch" data-theme="light" title="Light">
-                    <span style="background:#f0ede8"></span><span class="swatch-label">Light</span>
-                </button>
-                <button class="theme-swatch" data-theme="midnight" title="Midnight">
-                    <span style="background:#060a18"></span><span class="swatch-label">Midnight</span>
-                </button>
-                <button class="theme-swatch" data-theme="forest" title="Forest">
-                    <span style="background:#0a1a0e"></span><span class="swatch-label">Forest</span>
-                </button>
-                <button class="theme-swatch" data-theme="rose" title="Rose">
-                    <span style="background:#1a0d14"></span><span class="swatch-label">Rose</span>
-                </button>
-                <button class="theme-swatch" data-theme="ocean" title="Ocean">
-                    <span style="background:#071422"></span><span class="swatch-label">Ocean</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="panel-section">
-            <div class="panel-label">Accent colour</div>
-            <div class="accent-grid">
-                <button class="accent-dot active" data-accent="#5b7cfa" style="background:#5b7cfa"></button>
-                <button class="accent-dot" data-accent="#3ecf8e" style="background:#3ecf8e"></button>
-                <button class="accent-dot" data-accent="#f97316" style="background:#f97316"></button>
-                <button class="accent-dot" data-accent="#e879f9" style="background:#e879f9"></button>
-                <button class="accent-dot" data-accent="#facc15" style="background:#facc15"></button>
-                <button class="accent-dot" data-accent="#f43f5e" style="background:#f43f5e"></button>
-                <button class="accent-dot" data-accent="#06b6d4" style="background:#06b6d4"></button>
-                <button class="accent-dot" data-accent="#a78bfa" style="background:#a78bfa"></button>
-            </div>
-        </div>
-
-        <div class="panel-section">
-            <div class="panel-label">Font size</div>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <input type="range" id="font-size-range" min="12" max="18" value="14" step="1" style="flex:1;">
-                <span id="font-size-label">14px</span>
-            </div>
-        </div>
-
-        <div class="panel-section">
-            <div class="panel-label">Compact mode</div>
-            <label class="toggle-row">
-                <span>Tighter message spacing</span>
-                <div class="toggle-switch">
-                    <input type="checkbox" id="compact-toggle">
-                    <span class="toggle-slider"></span>
-                </div>
-            </label>
-        </div>
-
-        <div class="panel-section">
-            <div class="panel-label">Display name</div>
-            <div style="display:flex;gap:8px;">
-                <input type="text" id="display-name-input" placeholder="Your name…" class="name-input">
-                <button id="save-name-btn" class="save-btn">Save</button>
-            </div>
-        </div>
+  <!-- MAIN CHAT -->
+  <main id="chat-main">
+    <div id="chat-header">
+      <div class="chat-header-left">
+        <span id="active-room-name"># general</span>
+        <span class="status-dot"></span>
+        <span id="room-member-count" class="room-meta"></span>
+      </div>
+      <div class="chat-header-right">
+        <span id="msg-count-badge" class="room-meta"></span>
+        <button id="room-settings-btn" class="icon-btn hidden" title="Room settings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </button>
+      </div>
     </div>
 
-    <script type="module" src="app.js"></script>
+    <div id="messages"></div>
+
+    <div id="typing-indicator" class="hidden">
+      <div class="typing-dots"><span></span><span></span><span></span></div>
+      <span id="typing-text"></span>
+    </div>
+
+    <form id="message-form">
+      <input type="file" id="file-input" accept="image/*,.pdf,.doc,.docx,.zip,.txt" style="display:none">
+      <button type="button" id="attach-btn" class="icon-btn form-icon-btn" title="Attach file">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+      </button>
+      <div id="input-wrapper">
+        <div id="file-preview" class="hidden">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span id="file-preview-name"></span>
+          <button type="button" id="file-cancel">✕</button>
+        </div>
+        <input type="text" id="message-input" placeholder="Message…" autocomplete="off">
+      </div>
+      <button type="submit" id="send-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+
+    <div id="upload-progress" class="hidden">
+      <div id="upload-bar-track"><div id="upload-bar"></div></div>
+      <span id="upload-label">Uploading…</span>
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MODALS
+═══════════════════════════════════════════════ -->
+
+<!-- Create Room Modal -->
+<div id="modal-overlay" class="hidden">
+  <div id="create-room-modal" class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Create a room</span>
+      <button class="modal-close" data-close="create-room-modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <label class="field-label">Room name</label>
+      <input type="text" id="new-room-name" placeholder="e.g. design-team" maxlength="30" class="modal-input">
+      <label class="field-label" style="margin-top:14px;">Description <span class="optional">(optional)</span></label>
+      <input type="text" id="new-room-desc" placeholder="What's this room for?" maxlength="80" class="modal-input">
+      <label class="field-label" style="margin-top:14px;">Privacy</label>
+      <div class="radio-group">
+        <label class="radio-opt">
+          <input type="radio" name="room-privacy" value="public" checked>
+          <span class="radio-label">
+            <strong>Public</strong> — anyone can join
+          </span>
+        </label>
+        <label class="radio-opt">
+          <input type="radio" name="room-privacy" value="private">
+          <span class="radio-label">
+            <strong>Private</strong> — invite only
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" data-close="create-room-modal">Cancel</button>
+      <button id="create-room-submit" class="btn-primary">Create room</button>
+    </div>
+  </div>
+</div>
+
+<!-- Room Settings Modal (admin) -->
+<div id="room-settings-overlay" class="hidden">
+  <div id="room-settings-modal" class="modal modal-wide">
+    <div class="modal-header">
+      <span class="modal-title" id="settings-room-title">Room settings</span>
+      <button class="modal-close" data-close-overlay="room-settings-overlay">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- Tabs -->
+      <div class="settings-tabs">
+        <button class="settings-tab active" data-tab="members">Members</button>
+        <button class="settings-tab" data-tab="admins">Admins</button>
+        <button class="settings-tab" data-tab="danger">Danger zone</button>
+      </div>
+
+      <!-- Members tab -->
+      <div id="tab-members" class="tab-content">
+        <div class="members-search-row">
+          <input type="text" id="invite-uid-input" placeholder="Paste user UID to invite…" class="modal-input" style="flex:1">
+          <button id="invite-btn" class="btn-primary" style="flex-shrink:0">Invite</button>
+        </div>
+        <div id="members-list" class="members-list"></div>
+      </div>
+
+      <!-- Admins tab -->
+      <div id="tab-admins" class="tab-content hidden">
+        <p class="tab-hint">Admins can delete any message, manage members, and edit room settings.</p>
+        <div id="admins-list" class="members-list"></div>
+      </div>
+
+      <!-- Danger tab -->
+      <div id="tab-danger" class="tab-content hidden">
+        <div class="danger-card">
+          <div>
+            <strong>Delete this room</strong>
+            <p>This permanently deletes all messages. Cannot be undone.</p>
+          </div>
+          <button id="delete-room-btn" class="btn-danger">Delete room</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="hidden">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     CUSTOMIZATION PANEL
+═══════════════════════════════════════════════ -->
+<div id="customize-panel" class="hidden">
+  <div class="panel-header">
+    <span>Customize</span>
+    <button id="close-panel">✕</button>
+  </div>
+  <div class="panel-section">
+    <div class="panel-label">Theme</div>
+    <div class="theme-grid">
+      <button class="theme-swatch active" data-theme="dark"><span style="background:#0d0f14"></span><span class="swatch-label">Dark</span></button>
+      <button class="theme-swatch" data-theme="light"><span style="background:#f0ede8;border:1px solid #ddd"></span><span class="swatch-label">Light</span></button>
+      <button class="theme-swatch" data-theme="midnight"><span style="background:#060a18"></span><span class="swatch-label">Midnight</span></button>
+      <button class="theme-swatch" data-theme="forest"><span style="background:#0a1a0e"></span><span class="swatch-label">Forest</span></button>
+      <button class="theme-swatch" data-theme="rose"><span style="background:#1a0d14"></span><span class="swatch-label">Rose</span></button>
+      <button class="theme-swatch" data-theme="ocean"><span style="background:#071422"></span><span class="swatch-label">Ocean</span></button>
+    </div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-label">Accent colour</div>
+    <div class="accent-grid">
+      <button class="accent-dot active" data-accent="#5b7cfa" style="background:#5b7cfa"></button>
+      <button class="accent-dot" data-accent="#3ecf8e" style="background:#3ecf8e"></button>
+      <button class="accent-dot" data-accent="#f97316" style="background:#f97316"></button>
+      <button class="accent-dot" data-accent="#e879f9" style="background:#e879f9"></button>
+      <button class="accent-dot" data-accent="#facc15" style="background:#facc15"></button>
+      <button class="accent-dot" data-accent="#f43f5e" style="background:#f43f5e"></button>
+      <button class="accent-dot" data-accent="#06b6d4" style="background:#06b6d4"></button>
+      <button class="accent-dot" data-accent="#a78bfa" style="background:#a78bfa"></button>
+    </div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-label">Font size</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <input type="range" id="font-size-range" min="12" max="18" value="14" step="1" style="flex:1;">
+      <span id="font-size-label">14px</span>
+    </div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-label">Compact mode</div>
+    <label class="toggle-row">
+      <span>Tighter message spacing</span>
+      <div class="toggle-switch">
+        <input type="checkbox" id="compact-toggle">
+        <span class="toggle-slider"></span>
+      </div>
+    </label>
+  </div>
+  <div class="panel-section">
+    <div class="panel-label">Display name</div>
+    <div style="display:flex;gap:8px;">
+      <input type="text" id="display-name-input" placeholder="Your name…" class="name-input">
+      <button id="save-name-btn" class="save-btn">Save</button>
+    </div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-label">Your UID <span class="optional">(share to receive invites)</span></div>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <code id="my-uid-display" style="font-size:11px;color:var(--text-secondary);word-break:break-all;flex:1;font-family:var(--font-mono)">—</code>
+      <button id="copy-uid-btn" class="save-btn">Copy</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
 </body>
 </html>
