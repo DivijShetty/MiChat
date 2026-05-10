@@ -2,7 +2,7 @@
 
 A production-ready, real-time group chat app built with **Vanilla JavaScript** and **Firebase** — no frameworks, no build step, open the HTML and it works.
 
-![MiChat Screenshot](https://placehold.co/900x500/0d0f14/5b7cfa?text=MiChat+Screenshot)
+![MiChat]([https://placehold.co/900x500/0d0f14/5b7cfa?text=MiChat+Screenshot](https://michat-01.web.app/))
 
 ## ✨ Features
 
